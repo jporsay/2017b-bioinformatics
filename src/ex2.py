@@ -52,10 +52,13 @@ def process_results(args, handle):
         for blast_record in NCBIXML.parse(handle):
             out.write("Alignments: {}\n".format(len(blast_record.alignments)))
             for alignment in blast_record.alignments:
-                out.write("\n\n>>>>> Alignment {}\n".format(alignment.title))
+                out.write(f"\n\n>>>>> Alignment {alignment.title}\nId: {alignment.hit_id}\n")
                 for hsp in alignment.hsps:
-                    out.write(str(hsp))
-                    out.write("\n")
+                    out.write(f'Score {hsp.score} ({hsp.bits} bits) expectation {hsp.expect}, '
+                              f'alignment length {hsp.align_length}\n')
+                    out.write(f'Query\t{hsp.query_start}\t{hsp.match} {hsp.query_end}\n')
+                    out.write(f'Subj\t{hsp.sbjct_start}\t\t{hsp.sbjct} {hsp.sbjct_end}\n')
+                    out.write('\n')
 
 
 def main():
