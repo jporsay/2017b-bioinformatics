@@ -52,7 +52,12 @@ Para ejecutar una versión preestablecida utilizando BLAST remoto ejecutar el si
 
 #### Ejercicio 2.b
 
-TODO
+Podemos ver que los primeros 10 alineamientos están dominados por matches con otras proteínas humanas, sin embargo podemos también ver que aparecen los genes de TSC1 de ratas y ratones con un *Expect value* **muy** cercano a cero, lo que significa que el match fue muy significativo.
+
+A su vez, podemos ver que uno de los matches pertenece a un organismo denominado *PANTR*, o *Pan troglodytes* (Chimpanzee).
+
+Ambos resultados son interesantes ya que muestran las similitudes en ciertas proteínas que compartimos con los chimpanzees, ratas y ratones.
+
 
 ### Ejercicio 3
 
@@ -78,7 +83,7 @@ Utilizando estos IDs, realizamos consultas a la base de datos de BLAST para obte
 blastdbcmd -db swissprot -entry ID
 ```
 
-Con cada salida de ese programa y el archivo FASTA del gen TSC1, generamos un archivo llamado **msa.fasta**, el cual fue utilizado en el servicio mencionado arriba para realizar el alineamiento múltiple.
+Con cada salida de ese programa y el registro para TSC1 (sp|Q92574.2|TSC1_HUMAN), generamos un archivo llamado **msa.fasta**, el cual fue utilizado en el servicio mencionado arriba para realizar el alineamiento múltiple.
 La salida se encuentra en **aln-fasta.fasta**.
 
 El script `ex3.py` es un punto de entrada para trabajar con la librería `AlignIO` de `BioPython` para manipular el MSA. Actualmente consume el archivo `msa.fasta`.
