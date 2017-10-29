@@ -61,16 +61,16 @@ El ejercicio 3 fue resuelto utilizando un servicio externo para realizar el MSA:
 
 Analizando el archivo generado en el ejercicio 2, *ej2_out.txt*, obtuvimos los **id** de los 10 mejores alineamientos:
 
-* gnl|BL_ORD_ID|402703
-* gnl|BL_ORD_ID|241276
-* gnl|BL_ORD_ID|402715
-* gnl|BL_ORD_ID|294775
-* gnl|BL_ORD_ID|296221
-* gnl|BL_ORD_ID|294747
-* gnl|BL_ORD_ID|293762
-* gnl|BL_ORD_ID|311939
-* gnl|BL_ORD_ID|121397
-* gnl|BL_ORD_ID|294848
+* sp|Q9EP53.1|TSC1_MOUSE (e-val: 4e-86)
+* sp|Q9Z136.1|TSC1_RAT (e-val: 1e-85)
+* sp|Q8N2A0.1|CX062_HUMAN (e-val: 2e-28)
+* sp|Q8N976.1|YG039_HUMAN (e-val: 5e-26)
+* sp|Q8N7I0.1|GVQW1_HUMAN (e-val: 2e-25)
+* sp|Q8WTZ3.1|YS049_HUMAN (e-val: 8e-25)
+* sp|Q6B4Z3.1|UTY_PANTR (e-val: 7e-19)
+* sp|Q6UX73.2|CP089_HUMAN (e-val: 8e-20)
+* sp|Q96MD7.1|CI085_HUMAN (e-val: 9e-21)
+* sp|Q86U02.1|CN165_HUMAN (e-val: 2e-19)
 
 Utilizando estos IDs, realizamos consultas a la base de datos de BLAST para obtener las secuencias mediante el siguiente comando:
 
