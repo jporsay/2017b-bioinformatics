@@ -64,28 +64,13 @@ Ambos resultados son interesantes ya que muestran las similitudes en ciertas pro
 #### Multiple Sequence Alignment
 El ejercicio 3 fue resuelto utilizando un servicio externo para realizar el MSA: https://www.ebi.ac.uk/Tools/msa/mafft/
 
-Analizando el archivo generado en el ejercicio 2, *ej2_out.txt*, obtuvimos los **id** de los 10 mejores alineamientos:
-
-* sp|Q9EP53.1|TSC1_MOUSE (e-val: 4e-86)
-* sp|Q9Z136.1|TSC1_RAT (e-val: 1e-85)
-* sp|Q8N2A0.1|CX062_HUMAN (e-val: 2e-28)
-* sp|Q8N976.1|YG039_HUMAN (e-val: 5e-26)
-* sp|Q8N7I0.1|GVQW1_HUMAN (e-val: 2e-25)
-* sp|Q8WTZ3.1|YS049_HUMAN (e-val: 8e-25)
-* sp|Q6B4Z3.1|UTY_PANTR (e-val: 7e-19)
-* sp|Q6UX73.2|CP089_HUMAN (e-val: 8e-20)
-* sp|Q96MD7.1|CI085_HUMAN (e-val: 9e-21)
-* sp|Q86U02.1|CN165_HUMAN (e-val: 2e-19)
-
-Utilizando estos IDs, realizamos consultas a la base de datos de BLAST para obtener las secuencias mediante el siguiente comando:
+Analizando el archivo generado en el ejercicio 2, *ej2_out.txt*, obtuvimos los **id** de los 10 mejores alineamientos y, utilizando estos IDs, realizamos consultas a la base de datos de BLAST para obtener las secuencias mediante el siguiente comando:
 
 ```
 blastdbcmd -db swissprot -entry ID
 ```
 
-Con cada salida de ese programa y el registro para TSC1 (sp|Q92574.2|TSC1_HUMAN), generamos un archivo llamado **msa.fasta**, el cual fue utilizado en el servicio mencionado arriba para realizar el alineamiento múltiple.
+Con cada salida de ese programa, generamos un archivo llamado **msa.fasta**, el cual fue utilizado en el servicio mencionado arriba para realizar el alineamiento múltiple.
 La salida se encuentra en **aln-fasta.fasta**.
 
 El script `ex3.py` es un punto de entrada para trabajar con la librería `AlignIO` de `BioPython` para manipular el MSA. Actualmente consume el archivo `msa.fasta`.
-
-#### Interpretación de los resultados
