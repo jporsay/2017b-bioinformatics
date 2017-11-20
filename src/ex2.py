@@ -1,12 +1,9 @@
 import argparse
 import os
-from collections import namedtuple
-from tempfile import NamedTemporaryFile
+import shutil
+from io import StringIO
 
-from Bio.Blast import NCBIWWW, NCBIXML
-from Bio.Blast.Applications import NcbiblastxCommandline
-
-BlastConfig = namedtuple("BlastConfig", "cmd, db, evalue")
+from blast_utils import blast_local, blast_remote, BlastConfig
 
 
 class Params(object):
@@ -28,37 +25,20 @@ def parse_args() -> Params:
     return parser.parse_args(namespace=Params())
 
 
-def blast_remote(args: Params, config: BlastConfig):
-    print("Running with remote BLAST")
-    with open(args.source) as fasta_input:
-        handle = NCBIWWW.qblast(config.cmd, config.db, fasta_input.read(), expect=config.evalue)
-        process_results(args, handle)
-
-
-def blast_local(args: Params, config: BlastConfig):
-    print("Running with local BLAST")
-    ntf = NamedTemporaryFile(delete=False)
-    temp_name = ntf.name
-    ntf.close()
-    cli = NcbiblastxCommandline(cmd=config.cmd, db=config.db, evalue=config.evalue, query=args.source, out=temp_name, outfmt=5)
-    cli()
-    with open(temp_name, "r") as handle:
-        process_results(args, handle)
-    os.remove(temp_name)
-
-
-def process_results(args, handle):
+def process_results(args, handle: StringIO):
     with open(args.dest, "w") as out:
-        for blast_record in NCBIXML.parse(handle):
-            out.write("Alignments: {}\n".format(len(blast_record.alignments)))
-            for alignment in blast_record.alignments:
-                out.write(f"\n\n>>>>> Alignment {alignment.title}\nId: {alignment.hit_id}\n")
-                for hsp in alignment.hsps:
-                    out.write(f'Score {hsp.score} ({hsp.bits} bits) expectation {hsp.expect}, '
-                              f'alignment length {hsp.align_length}\n')
-                    out.write(f'Query\t{hsp.query_start}\t{hsp.match} {hsp.query_end}\n')
-                    out.write(f'Subj\t{hsp.sbjct_start}\t\t{hsp.sbjct} {hsp.sbjct_end}\n')
-                    out.write('\n')
+        handle.seek(0)
+        shutil.copyfileobj(handle, out)
+        # for blast_record in NCBIXML.parse(handle):
+        #     out.write("Alignments: {}\n".format(len(blast_record.alignments)))
+        #     for alignment in blast_record.alignments:
+        #         out.write(f"\n\n>>>>> Alignment {alignment.title}\nId: {alignment.hit_id}\n")
+        #         for hsp in alignment.hsps:
+        #             out.write(f'Score {hsp.score} ({hsp.bits} bits) expectation {hsp.expect}, '
+        #                       f'alignment length {hsp.align_length}\n')
+        #             out.write(f'Query\t{hsp.query_start}\t{hsp.match} {hsp.query_end}\n')
+        #             out.write(f'Subj\t{hsp.sbjct_start}\t\t{hsp.sbjct} {hsp.sbjct_end}\n')
+        #             out.write('\n')
 
 
 def main():
@@ -66,7 +46,8 @@ def main():
     args.validate()
     config = BlastConfig("blastx", "swissprot", 0.0001)
     blast_fn = blast_local if "local" in args.blast else blast_remote
-    blast_fn(args, config)
+    output = blast_fn(args.source, config)
+    process_results(args, output)
     print("Results can be found inside {}".format(args.dest))
 
 
