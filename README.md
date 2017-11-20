@@ -104,3 +104,17 @@ Para ejecutar una versión preconfigurada, ejecutar los siguientes scripts:
 # de la secuencia de proteinas del gen TSC1.
 ./ej5.b.sh
 ```
+
+### Ejercicio 6
+
+- d
+    - http://www.uniprot.org/uniprot/Q92574
+    - Hamartin, the product of the tuberous sclerosis 1 (TSC1) gene, interacts with tuberin and appears to be localized to cytoplasmic vesicles.
+- e
+    - http://pantherdb.org/genes/gene.do?acc=HUMAN%7CHGNC=12362%7CUniProtKB=Q92574
+- f
+    - plasma membrane: https://reactome.org/content/detail/R-HSA-165169
+    - cytosol: https://reactome.org/content/detail/R-HSA-5672338
+- g
+    - SNP: single nucleotide polymorphisms (SNPs) and multiple small-scale variations that include insertions/deletions, microsatellites, and non-polymorphic variants.
+    - https://www.ncbi.nlm.nih.gov/snp/?term=tsc1
