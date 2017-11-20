@@ -52,7 +52,7 @@ Para ejecutar una versión preestablecida utilizando BLAST remoto ejecutar el si
 
 #### Ejercicio 2.b
 
-Podemos ver que los primeros 10 alineamientos están dominados por matches con otras proteínas humanas, sin embargo podemos también ver que aparecen los genes de TSC1 de ratas y ratones con un *Expect value* **muy** cercano a cero, lo que significa que el match fue muy significativo.
+Podemos ver que los primeros 10 alineamientos están dominados por matches con otras proteínas humanas, sin embargo podemos también ver que aparecen los genes de TSC1 de ratas y ratones con un *Expect value* **muy** cercano a cero, lo que significa que el match fue significativo.
 
 A su vez, podemos ver que uno de los matches pertenece a un organismo denominado *PANTR*, o *Pan troglodytes* (Chimpanzee).
 
@@ -74,3 +74,33 @@ Con cada salida de ese programa, generamos un archivo llamado **msa.fasta**, el 
 La salida se encuentra en **aln-fasta.fasta**.
 
 El script `ex3.py` es un punto de entrada para trabajar con la librería `AlignIO` de `BioPython` para manipular el MSA. Actualmente consume el archivo `msa.fasta`.
+
+Para ejecutar una versión preconfigurada, ejecutar el siguiente script:
+
+```
+./ej3.sh
+```
+
+### Ejercicio 4
+
+Para ejecutar una versión preconfigurada, ejecutar el siguiente script:
+
+```
+# Buscará aquellos matches en el archivo ej2_out.txt que contengan
+# la palabra 'Tuberous' y utilizará Entrez para buscar la secuencia completa
+# de cada match.
+./ej4.sh
+```
+
+### Ejercicio 5
+
+Para ejecutar una versión preconfigurada, ejecutar los siguientes scripts:
+
+```
+# Encuentra los ORFs del gen TSC1
+./ej5.a.sh
+
+# Utiliza la base de datos de PROSITE para encontrar motifs
+# de la secuencia de proteinas del gen TSC1.
+./ej5.b.sh
+```
