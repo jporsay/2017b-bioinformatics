@@ -46,9 +46,7 @@ def process_blast(source, dest, pattern):
 def main():
     args = parse_args()
     args.validate()
-    # process_blast(args.source, args.pattern)
     process_blast(args.source, args.savematch, args.pattern)
-    print("Results can be found inside {}".format(args.savematch))
 
 
 if __name__ == '__main__':
