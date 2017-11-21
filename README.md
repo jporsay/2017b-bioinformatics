@@ -3,7 +3,7 @@
 
 ## Introducción
 
-En el siguiente trabajo realizaremos análisis sobre la Tuberculosis Sclerosa, específicamente sobre el gen **TSC1**, gen que se encuentra en el cromosoma 9 y es encargado de encodear la proteína llamada Hamartina.
+En el siguiente trabajo realizaremos un análisis sobre la **Esclerosis tuberosa**, específicamente sobre el gen **TSC1**, encontrado en el cromosoma 9 y es el encargado de encodear la proteína llamada Hamartina.
 
 Fuente para el archivo genebank: [NCBI](https://www.ncbi.nlm.nih.gov/nuccore/NG_012386.1?from=5001&to=58286&report=genbank)
 
@@ -106,12 +106,16 @@ Para ejecutar una versión preconfigurada, ejecutar los siguientes scripts:
 ```
 
 ### Ejercicio 6
-#### Proteina
+#### a) Proteina
 El link de NCBI-Gene para el gen TSC1 es:
 (https://www.ncbi.nlm.nih.gov/gene/7248)
 La proteína relacionada es la Hamartina y su función principal es la de supresora del crecimiento de tumores.
+La elegimos porque el alumno Gomez tiene su ahijado con esta enfermedad. Es una enfermedad muy rara (1 en 6000 recien nacidos) que afecto el crecimiento del niño, tiene tumores en el cerebro, riñones, retina, etc. Estos tumores (no-cancerígenos) por medio de alteraciones físicas (como el pinzamiento de vasos sanguineos) generan retraso mental y otros problemas.
 
 #### b) Homologos
+
+En *NCBI* la información de Homólogos es reducida, sólo hace referencia a las especies más cercanas al Homo Sapiens.
+
 https://www.ncbi.nlm.nih.gov/homologene/314
 * Homo sapiens (human)
 * Pan troglodytes (chimpanzee)
@@ -124,9 +128,18 @@ https://www.ncbi.nlm.nih.gov/homologene/314
 * Xenopus tropicalis (tropical clawed frog)
 * Danio rerio (zebrafish)
 
-(Imagenes en ppt)
+Buscando en Ensembl encontramos el árbol más completo y pudimos ver que no solo afecta a los primates y vertebrados sino también llega a la mosca de la fruta y algunos invertebrados marinos.
 
-#### c) transcripts
+![homologos](./informe/04_orthodb.png)
+
+#### c) transcripts & alternative splicing
+
+En cuanto a transcripciones y alternative splicing notamos que hay muy poca información relevante tatno en NCBI como en Ensembl.
+
+En general son isoformas de la misma proteina sin cambios funcionales relevantes. Algunas de ellas "predictas" pero sin evidencia analítica.
+
+Cantidades:
+
 NCBI: 19
 https://www.ncbi.nlm.nih.gov/unigene/?term=TSC1
 
@@ -134,21 +147,46 @@ Ensembl: 8 transcripts.
 http://www.ensembl.org/Homo_sapiens/Gene/Splice?db=core;g=ENSG00000165699;r=9:132891348-132944633
 
 #### d) Interacciones
+
+La interacción más importante de nuestro gen TSC1 de la proteína **Hamartina** es sin duda el gen TSC2 de la proteína **Tuberina**.
+
+Buscamos información sobre como es esta interacción y [encontramos en PubMed #10585443](https://www.ncbi.nlm.nih.gov/pubmed/10585443) que en el complejo TSC la Tuberina tiene la actúa como *[chaperona](https://en.wikipedia.org/wiki/Chaperone_(protein)), evitando la autoagregación de hamartina.
+
+Cantidades:
+
 NIST: 77 interacciones.
 https://www.ncbi.nlm.nih.gov/gene/7248#interactions
 
 UNIPROT: 4 interacciones.
 http://www.uniprot.org/uniprot/Q92574#interaction
-* TSC2: Interactua con la Tuberina. En falta de una compensa la otra.
-* DOCK7.
-* FBXW5.
-* TBC1D7.
-    - Hamartin, the product of the tuberous sclerosis 1 (TSC1) gene, interacts with tuberin and appears to be localized to cytoplasmic vesicles.
-#### e)
-    - http://pantherdb.org/genes/gene.do?acc=HUMAN%7CHGNC=12362%7CUniProtKB=Q92574
-#### f)
-    - plasma membrane: https://reactome.org/content/detail/R-HSA-165169
-    - cytosol: https://reactome.org/content/detail/R-HSA-5672338
-#### g)
-    - SNP: single nucleotide polymorphisms (SNPs) and multiple small-scale variations that include insertions/deletions, microsatellites, and non-polymorphic variants.
-    - https://www.ncbi.nlm.nih.gov/snp/?term=tsc1
+* TSC2, DOCK7, FBXW5, TBC1D7.
+
+#### e) Componentes celulares
+![celula](./informe/05_cell.png)
+En esta imagen se puede ver que la **Hamartina** interviene en el tejido del Citoesqueléto según Ensembl. También en base a otras fuentes interviene en el Cytosol, Nucleo, Membrana plasmática y otros.
+
+Se puede notar de estos datos que estas proteinas tienen directa relación con la composisión estructural de las células y de esta forma es que estan relacionadas con el tamaño y crecimiento de las mismas.
+
+#### f) Pathways
+![celula](./informe/06_pathways.png)
+
+En la página *SIGNOR* encontramos esta representación gráfica de los pathways entre TSC1 y otras proteínas.
+
+Podemos ver 3 tipos principales de relaciones. Regulación positiva (azules), Regulación negativa (rojas) e Interacción física (verde).
+
+La interaccón física es TSC1 + TSC2. Ya fue descripta en detalle en la sección de intereacciones.
+
+El resto afectan metabólicamente a elevar o disminuir la TSC1 en diferente medida según el índice que se puede ver en el gráfico.
+
+#### g) dbSNP - Variantes génicas
+
+Buscamos en dbSNP variantes que posean frecuencia y sólo encontramos benignas. Por ejemplo:
+
+![dbSNP benign](./informe/07_dbSNP_benign.png)
+
+Patogénica encontramos la siguiente variante:
+![dbSNP pathogenic](./informe/08_dbSNP_pathogenic.png)
+
+Investiganto internamente, entrando al link de ClinVar pudimos verificar que esta variante tiene como síntoma la *Lymphangiomyomatosis* que es una enfermedad pulmonar en donde se llena el pulmón de quistes benignos impodiendo el correcto funcionamiento del mismo y que en casos extremos llega al pneumotorax.
+
+![Lymphangiomyomatosis](./informe/09_Lymphangiomyomatosis.png)
