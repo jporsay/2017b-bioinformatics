@@ -106,15 +106,49 @@ Para ejecutar una versión preconfigurada, ejecutar los siguientes scripts:
 ```
 
 ### Ejercicio 6
+#### Proteina
+El link de NCBI-Gene para el gen TSC1 es:
+(https://www.ncbi.nlm.nih.gov/gene/7248)
+La proteína relacionada es la Hamartina y su función principal es la de supresora del crecimiento de tumores.
 
-- d
-    - http://www.uniprot.org/uniprot/Q92574
+#### b) Homologos
+https://www.ncbi.nlm.nih.gov/homologene/314
+* Homo sapiens (human)
+* Pan troglodytes (chimpanzee)
+* Macaca mulatta (Rhesus monkey)
+* Canis lupus familiaris (dog)
+* Bos taurus (cattle)
+* Mus musculus (house mouse)
+* Rattus norvegicus (Norway rat)
+* Gallus gallus (chicken)
+* Xenopus tropicalis (tropical clawed frog)
+* Danio rerio (zebrafish)
+
+(Imagenes en ppt)
+
+#### c) transcripts
+NCBI: 19
+https://www.ncbi.nlm.nih.gov/unigene/?term=TSC1
+
+Ensembl: 8 transcripts.
+http://www.ensembl.org/Homo_sapiens/Gene/Splice?db=core;g=ENSG00000165699;r=9:132891348-132944633
+
+#### d) Interacciones
+NIST: 77 interacciones.
+https://www.ncbi.nlm.nih.gov/gene/7248#interactions
+
+UNIPROT: 4 interacciones.
+http://www.uniprot.org/uniprot/Q92574#interaction
+* TSC2: Interactua con la Tuberina. En falta de una compensa la otra.
+* DOCK7.
+* FBXW5.
+* TBC1D7.
     - Hamartin, the product of the tuberous sclerosis 1 (TSC1) gene, interacts with tuberin and appears to be localized to cytoplasmic vesicles.
-- e
+#### e)
     - http://pantherdb.org/genes/gene.do?acc=HUMAN%7CHGNC=12362%7CUniProtKB=Q92574
-- f
+#### f)
     - plasma membrane: https://reactome.org/content/detail/R-HSA-165169
     - cytosol: https://reactome.org/content/detail/R-HSA-5672338
-- g
+#### g)
     - SNP: single nucleotide polymorphisms (SNPs) and multiple small-scale variations that include insertions/deletions, microsatellites, and non-polymorphic variants.
     - https://www.ncbi.nlm.nih.gov/snp/?term=tsc1
