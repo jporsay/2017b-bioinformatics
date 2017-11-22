@@ -1,5 +1,8 @@
 # Bioinformática: Trabajo práctico
 
+- Juan Pablo Orsay - 49373
+- Horacio Miguel Gomez - 50825
+
 
 ## Introducción
 
